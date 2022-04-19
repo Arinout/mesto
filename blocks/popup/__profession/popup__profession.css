@@ -3,14 +3,13 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    color: #000000;
+    color: #000;
     border:none;
     background-image:none;
     background-color:transparent;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    color: inherit;
     outline: none;
     padding: 0 0 13px;
     width: 100%;

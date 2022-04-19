@@ -2,7 +2,7 @@
     max-width: 880px;
     margin: 0 auto;
     padding: 66px 0 60px;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 @media (max-width: 900px){
