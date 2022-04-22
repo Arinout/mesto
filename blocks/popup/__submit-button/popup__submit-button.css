@@ -1,8 +1,6 @@
 .popup__submit-button{
     background-color: #000;
     border-radius: 2px;
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
@@ -24,7 +22,6 @@
 @media (max-width: 530px){
     .popup__submit-button{
         padding: 14px 82px;
-        font-weight: 400;
         font-size: 14px;
         line-height: 18px;
     }
