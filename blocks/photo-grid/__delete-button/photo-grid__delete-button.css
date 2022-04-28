@@ -8,12 +8,10 @@
     transition: 0.5s ease;
     border: none;
     padding: 0;
-    background-color: #fff;
+    background-color: transparent;
     position: absolute;
     top: 20px;
     right: 20px;
-    font: inherit;
-    color: inherit;
     cursor: pointer;
 }
 
