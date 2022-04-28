@@ -1,5 +1,4 @@
 .photo-grid__button-like{
-    background-image: url(../../../images/heart.svg);
     background-repeat: no-repeat;
     background-size: cover;
     width: 22px;
@@ -9,6 +8,7 @@
     cursor: pointer;
     border: none;
     padding: 0;
+    background-color: #fff;
 }
 
 .photo-grid__button-like:hover{
