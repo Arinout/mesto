@@ -1,11 +1,10 @@
 // DOM элементы для profile-popup
-const popup = document.querySelector ('.popup');
 const closeButtons = document.querySelectorAll('.popup__close-button');
 const profileOpenButton = document.querySelector ('.profile__edit');
 const profilePopup = document.querySelector ('.profile-popup')
 const profileForm = document.querySelector('.profile-popup__form');
-const nameInput = popup.querySelector('.popup__input_element_name');
-const professionInput = popup.querySelector('.popup__input_element_profession');
+const nameInput = profilePopup.querySelector('.popup__input_element_name');
+const professionInput = profilePopup.querySelector('.popup__input_element_profession');
 const nameOutput = document.querySelector('.profile__name');
 const professionOutput = document.querySelector('.profile__profession');
 
@@ -90,7 +89,7 @@ const deleteCard = (evt) => {
 
 // Поставить/убрать like
 const likeButtonActive = (evt) => {
-    evt.target.closest(".photo-grid__button-like").classList.toggle('photo-grid__button-like_acive');
+    evt.target.classList.toggle('photo-grid__button-like_acive');
 }
 
 //Генерация карточки
