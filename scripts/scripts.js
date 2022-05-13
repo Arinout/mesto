@@ -1,7 +1,7 @@
 // DOM элементы для profile-popup
 const popupcloseButtons = document.querySelectorAll('.popup__close-button');
 const profileOpenButton = document.querySelector('.profile__edit');
-const profilePopup = document.querySelector('.popup_type_profile')
+const profilePopup = document.querySelector('.profile-popup')
 const profileForm = document.querySelector('.profile-popup__form');
 const nameInput = profilePopup.querySelector('.popup__input_element_name');
 const professionInput = profilePopup.querySelector('.popup__input_element_profession');
@@ -10,7 +10,7 @@ const professionOutput = document.querySelector('.profile__profession');
 const popup = document.querySelector('.popup');
 
 //DOM элементы для card-popup
-const cardPopup = document.querySelector('.popup_type_card');
+const cardPopup = document.querySelector('.card-popup');
 const popupAddCardButton = document.querySelector('.profile__add-button');
 const cardTitle = document.querySelector('.popup__input_element_title');
 const cardLink = document.querySelector('.popup__input_element_link');
