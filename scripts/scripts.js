@@ -29,11 +29,12 @@ const captionImagePopup = document.querySelector('.image-popup__caption');
 function openPopup(popup) {
     popup.classList.add('popup_active');
     closeOverlayPopup(popup);
-    addCloseEscapePopup();
+    document.addEventListener('keydown', handleCloseOnEsc);
 }
 
 const closePopup = (popup) => {
     popup.classList.remove('popup_active');
+    document.removeEventListener('keydown', handleCloseOnEsc);
 }
 
 //Обработчик кнопоки 'закрыть popup'
@@ -73,21 +74,14 @@ function closeOverlayPopup(popup) {
     });
 }
 
+
+// добавление/удаление закрытия попапа через Escape
 function handleCloseOnEsc(evt) {
     if (evt.key === "Escape") {
         closePopup(profilePopup);
         closePopup(cardPopup);
         closePopup(imagePopup);
     }
-}
-
-// добавление/удаление закрытия попапа через Escape
-function addCloseEscapePopup() {
-    document.addEventListener('keydown', handleCloseOnEsc);
-}
-
-function removeCloseEscapePopup() {
-    document.removeEventListener('keydown', handleCloseOnEsc);
 }
 
 // Открыть/закрыть card popup
