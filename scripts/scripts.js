@@ -20,7 +20,7 @@ const cardLikeButton = document.querySelector('.photo-grid__button-like');
 const cardSubmitButton = document.querySelector('.card-popup__submit-button')
 
 //DOM элементы для image popup
-const imagePopup = document.querySelector('.popup_type_image');
+const imagePopup = document.querySelector('.image-popup');
 const photoImagePopup = document.querySelector('.image-popup__image');
 const captionImagePopup = document.querySelector('.image-popup__caption');
 
