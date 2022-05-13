@@ -17,6 +17,7 @@
     background-size: 22px 22px;
     background-position: center;
     padding: 0;
+    outline: none;
 }
 
 .profile__add-button:hover{

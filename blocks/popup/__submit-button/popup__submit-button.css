@@ -8,7 +8,7 @@
     color: #FFFFFF;
     padding: 14px 125px;
     box-sizing: border-box;
-    border: 0;
+    border: 1px solid #000000;
     cursor: pointer;
     width: 100%;
     opacity: 1;

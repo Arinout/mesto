@@ -12,6 +12,7 @@
     border: 0;
     box-sizing: border-box;
     opacity: 1;
+    outline: none;
 }
 
 .profile__edit:hover{
