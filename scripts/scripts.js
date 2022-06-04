@@ -1,3 +1,12 @@
+import {
+    Card,
+    initialCards
+} from './card.js'
+import {
+    formValidator,
+    validateObj
+} from './validate.js';
+
 // DOM элементы для profile-popup
 const popupcloseButtons = document.querySelectorAll('.popup__close-button');
 const profileOpenButton = document.querySelector('.profile__edit');
@@ -16,17 +25,43 @@ const cardTitle = document.querySelector('.popup__input_element_title');
 const cardLink = document.querySelector('.popup__input_element_link');
 const cardsContainer = document.querySelector('.photo-grid__elements');
 const cardForm = document.querySelector('.card-popup__form');
-const cardLikeButton = document.querySelector('.photo-grid__button-like');
-const cardSubmitButton = document.querySelector('.card-popup__submit-button')
 
 //DOM элементы для image popup
-const imagePopup = document.querySelector('.image-popup');
-const photoImagePopup = document.querySelector('.image-popup__image');
-const captionImagePopup = document.querySelector('.image-popup__caption');
+export const imagePopup = document.querySelector('.image-popup');
+export const photoImagePopup = document.querySelector('.image-popup__image');
+export const captionImagePopup = document.querySelector('.image-popup__caption');
 
+
+
+//Добавление карточки
+const addNewCard = (evt) => {
+    evt.preventDefault();
+    renderCard({
+        title: cardTitle.value,
+        link: cardLink.value
+    });
+    evt.target.reset();
+    closePopup(cardPopup);
+};
+
+const renderCard = (cardData) => {
+    const card = new Card(cardData, '#template');
+    const cardElement = card.generateCard();
+    cardsContainer.prepend(cardElement);
+};
+
+initialCards.forEach((cardData) => {
+    renderCard(cardData);
+});
+
+const formList = Array.from(document.querySelectorAll('.popup__form'));
+formList.forEach((formElement) => {
+    const validation = new formValidator(validateObj, formElement);
+    validation.enableValidation();
+})
 
 //Функция открыть/закрыть popup
-function openPopup(popup) {
+export function openPopup(popup) {
     popup.classList.add('popup_active');
     closeOverlayPopup(popup);
     document.addEventListener('keydown', handleCloseOnEsc);
@@ -43,10 +78,6 @@ popupcloseButtons.forEach((button) => {
     button.addEventListener('click', () => closePopup(popup));
 });
 
-// Template 
-const cardTemplate = document
-    .querySelector('#template')
-    .content.querySelector('.photo-grid__element');
 
 // Откыть/закрыть profile popup
 const openProfilePopup = (evt) => {
@@ -85,72 +116,11 @@ function handleCloseOnEsc(evt) {
 }
 
 // Открыть/закрыть card popup
-const openCardPopup = (evt) => {
-    disableSumbitButton(cardSubmitButton, validateObj);
+const openCardPopup = () => {
+    cardTitle.value = '';
+    cardLink.value = '';
     openPopup(cardPopup);
 }
-
-//Открыть/закрыть image popup
-const openImagePopup = (evt) => {
-    photoImagePopup.setAttribute('src', evt.target.src);
-    photoImagePopup.setAttribute('alt', evt.target.alt);
-    captionImagePopup.textContent = evt.target.alt;
-    openPopup(imagePopup);
-};
-
-
-//Добавление карточки
-const addNewCard = (evt) => {
-    evt.preventDefault();
-    renderCard({
-        title: cardTitle.value,
-        link: cardLink.value
-    });
-    evt.target.reset();
-    closePopup(cardPopup);
-};
-
-// Удаление карточки
-const deleteCard = (evt) => {
-    evt.target.closest('.photo-grid__element').remove();
-}
-
-// Поставить/убрать like
-const likeButtonActive = (evt) => {
-    evt.target.classList.toggle('photo-grid__button-like_acive');
-}
-
-//Генерация карточки
-const generateCard = (cardData) => {
-    const newCard = cardTemplate.cloneNode(true);
-
-    const titleCard = newCard.querySelector('.photo-grid__title');
-    titleCard.textContent = cardData.title;
-
-    const imageCard = newCard.querySelector('.photo-grid__image');
-    imageCard.setAttribute('src', cardData.link);
-    imageCard.setAttribute('alt', cardData.title);
-
-    const cardDeleteButton = newCard.querySelector('.photo-grid__delete-button');
-    cardDeleteButton.addEventListener('click', deleteCard);
-
-    const cardLikeButton = newCard.querySelector('.photo-grid__button-like');
-    cardLikeButton.addEventListener('click', likeButtonActive);
-
-    const imagePopupButton = newCard.querySelector('.photo-grid__image-button');
-    imagePopupButton.addEventListener('click', openImagePopup);
-
-    return newCard;
-}
-
-const renderCard = (cardData) => {
-    cardsContainer.prepend(generateCard(cardData));
-};
-
-initialCards.forEach((cardData) => {
-    renderCard(cardData);
-});
-
 
 profileOpenButton.addEventListener('click', openProfilePopup);
 
