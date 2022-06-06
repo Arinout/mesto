@@ -1,9 +1,9 @@
 import {
     Card
-} from './card.js'
+} from './Card.js'
 import {
     FormValidator
-} from './formValidator.js';
+} from './FormValidator.js';
 import {
     initialCards,
     validateObj
