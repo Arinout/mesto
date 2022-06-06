@@ -1,6 +1,6 @@
 import {
     Card
-} from './asdasdsadasd.js'
+} from './Card.js'
 import {
     FormValidator
 } from './FormValidator.js';
