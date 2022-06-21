@@ -38,7 +38,7 @@ export class Card {
 
     this._imageButton = this._element.querySelector('.photo-grid__image-button');
     this._imageButton.addEventListener('click', () => {
-      this._openImagePopup(this._title, this._link);
+      this._openImagePopup();
     });
   }
 
