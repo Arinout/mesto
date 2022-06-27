@@ -44,15 +44,15 @@ const createCard = (item) => {
 };
 
 //Заполнить контейнер карточками
-const CardList = new Section({
+const cardList = new Section({
     items: initialCards,
     renderer: (item) => {
         const cardElement = createCard(item);
-        CardList.addItem(cardElement);
+        cardList.addItem(cardElement);
     }
 }, cardsContainer);
 
-CardList.renderItems();
+cardList.renderItems();
 
 //Создать попапы
 const imagePopup = new PopupWithImage('.popup_type_image');
@@ -61,13 +61,11 @@ const addCardPopup = new PopupWithForm('.card-popup', ((data) => {
         title: data.title,
         link: data.link
     });
-    CardList.addItem(card);
+    cardList.addItem(card);
     addCardPopup.close();
 }));
 const profilePopup = new PopupWithForm('.profile-popup', ((data) => {
     userInfo.setUserInfo(data)
-    nameOutput.textContent = data.name;
-    professionOutput.textContent = data.profession;
     profilePopup.close();
 }));
 

@@ -9,15 +9,17 @@ export class FormValidator {
   }
 
   _showInputError(inputElement) {
-    this._formSelector.querySelector(`.${inputElement.id}-error`).textContent = inputElement.validationMessage;
-    this._formSelector.querySelector(`.${inputElement.id}-error`).classList.add(this._error);
+    this._errorElement = this._formSelector.querySelector(`.${inputElement.id}-error`);
+    this._errorElement.textContent = inputElement.validationMessage;
+    this._errorElement.classList.add(this._error);
     inputElement.classList.add(this._inputError);
   }
 
   _hideInputError(inputElement) {
-    this._formSelector.querySelector(`.${inputElement.id}-error`).classList.remove(this._error);
+    this._errorElement = this._formSelector.querySelector(`.${inputElement.id}-error`);
+    this._errorElement.classList.remove(this._error);
     inputElement.classList.remove(this._inputError);
-    this._formSelector.querySelector(`.${inputElement.id}-error`).textContent.reset;
+    this._errorElement.textContent.reset;
   }
 
   _isValid(inputElement) {

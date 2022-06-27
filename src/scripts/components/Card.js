@@ -15,6 +15,10 @@ export class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    
+    this._deleteButton = this._element.querySelector('.photo-grid__delete-button');
+    this._likeButton = this._element.querySelector('.photo-grid__button-like');
+    this._imageButton = this._element.querySelector('.photo-grid__image-button');
 
     this._element.querySelector('.photo-grid__title').textContent = this._title;
     this._cardImage = this._element.querySelector('.photo-grid__image');
@@ -26,17 +30,14 @@ export class Card {
   }
 
   _setEventListeners() {
-    this._deleteButton = this._element.querySelector('.photo-grid__delete-button');
     this._deleteButton.addEventListener('click', () => {
       this._deleteCard();
     });
 
-    this._likeButton = this._element.querySelector('.photo-grid__button-like');
     this._likeButton.addEventListener('click', () => {
-      this._likeButtonActive();
+      this._toggleLike();
     });
 
-    this._imageButton = this._element.querySelector('.photo-grid__image-button');
     this._imageButton.addEventListener('click', () => {
       this._openImagePopup();
     });
@@ -46,7 +47,7 @@ export class Card {
     this._deleteButton.closest('.photo-grid__element').remove();
   }
 
-  _likeButtonActive() {
+  _toggleLike() {
     this._likeButton.classList.toggle('photo-grid__button-like_acive');
   }
 
