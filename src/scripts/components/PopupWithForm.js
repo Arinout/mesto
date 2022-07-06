@@ -8,12 +8,12 @@ export class PopupWithForm extends Popup {
         this._handleSubmit = handleSubmit;
         this._form = this._popup.querySelector('.popup__form')
         this._inputs = this._form.querySelectorAll('.popup__input')
+        this._sumbitButton = this._form.querySelector('.popup__submit-button')
     }
 
     _getInputValues() {
-
         this._values = {}
-        this._inputs.forEach((input) => {
+        this._inputs.forEach(input => {
             this._values[input.name] = input.value
         })
         return this._values
@@ -29,5 +29,11 @@ export class PopupWithForm extends Popup {
     close() {
         super.close();
         this._form.reset();
+    }
+
+    savе(isSave) {
+        if (isSave) {
+            this._sumbitButton.setAttribute('value', 'Сохранение...')
+        }
     }
 }

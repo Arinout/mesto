@@ -40,3 +40,6 @@
 @import url(../blocks/popup/__input-container/popup__input-container.css);
 @import url(../blocks/popup/__input/_error/popup__input_error.css);
 @import url(../blocks/popup/__submit-button/_inactive/popup__submit-button_inactive.css);
+@import url(../blocks/profile/__image-btn/profile__image-btn.css);
+@import url(../blocks/photo-grid/__likes-counter/photo-grid__likes-counter.css);
+@import url(../blocks/photo-grid/__likes/photo-grid__likes.css);

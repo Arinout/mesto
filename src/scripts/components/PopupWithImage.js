@@ -8,8 +8,8 @@ export class PopupWithImage extends Popup {
     this._caption = this._popup.querySelector('.image-popup__caption');
 
     this._image.src = item.link
-    this._image.alt = item.title
-    this._caption.textContent = item.title
+    this._image.alt = item.name
+    this._caption.textContent = item.name
 
     super.open()
   }
