@@ -82,24 +82,24 @@
 
   <div class="popup popup_type_avatar">
     <div class="popup__content">
-      <button type="button" class="popup__close-button avatar-popup__close-button"></button>
+      <button type="button" class="popup__close-button"></button>
       <h2 class="popup__title">Обновить аватар</h2>
-      <form name="avatar-form" action="#" class="popup__form avatar-popup__form" novalidate>
+      <form name="avatar-form" action="#" class="popup__form" novalidate>
         <div class="popup__input-container">
           <input id="avatar" class="popup__input popup__input_element_avatar" name="avatar" type="url" value="" placeholder="Ссылка на картинку" required>
-          <span class="title-error popup__error popup__error_visible"></span>
+          <span class="avatar-error popup__error popup__error_visible"></span>
         </div>
-        <input type="submit"  name="button" class="popup__submit-button avatar-popup__submit-button" value="Сохранить">
+        <input type="submit"  name="button" class="popup__submit-button" value="Сохранить">
       </form>
     </div>
   </div>
 
   <div class="popup popup_type_delete-card">
     <div class="popup__content">
-      <button type="button" class="popup__close-button delete-popup__close-button"></button>
+      <button type="button" class="popup__close-button"></button>
       <h2 class="popup__title">Вы уверены?</h2>
-      <form name="delete-form" action="#" class="popup__form delete-popup__form" novalidate>
-        <input type="submit"  name="button" class="popup__submit-button delete-popup__submit-button" value="Да">
+      <form name="delete-form" action="#" class="popup__form" novalidate>
+        <input type="submit"  name="button" class="popup__submit-button" value="Да">
       </form>
     </div>
   </div>

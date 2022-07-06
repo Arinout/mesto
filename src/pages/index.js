@@ -204,7 +204,7 @@ function openCardPopup() {
 
 const openAvatarPopup = () => {
   avatarPopup.open();
-  formValidators['edit-avatar-form'].resetValidation();
+  formValidators['avatar-form'].resetValidation();
 }
 
 // Валидация
