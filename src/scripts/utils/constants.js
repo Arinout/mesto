@@ -19,4 +19,4 @@ export const avatarEditButton = document.querySelector('.profile__image-btn');
 
 export const popupAddCardButton = document.querySelector('.profile__add-button');
 export const cardsContainer = document.querySelector('.photo-grid__elements');
-
+export const templateElement = document.getElementById('template')

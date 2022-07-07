@@ -17,7 +17,8 @@ import {
   professionInput,
   popupAddCardButton,
   cardsContainer,
-  avatarEditButton
+  avatarEditButton,
+  templateElement
 } from '../scripts/utils/constants'
 
 import {
@@ -70,7 +71,7 @@ const userInfo = new UserInfo({
 });
 // Profile popup
 const profilePopup = new PopupWithForm('.profile-popup', ((data) => {
-  profilePopup.savе(true);
+  profilePopup.renderLoading(true);
   api.editUserInfo(data)
     .then((data) => {
       userInfo.setUserInfo(data)
@@ -80,14 +81,14 @@ const profilePopup = new PopupWithForm('.profile-popup', ((data) => {
       console.log(`Ошибка: ${err}`);
     })
     .finally(() => {
-      profilePopup.savе(false);
+      profilePopup.renderLoading(false);
     });
 }));
 profilePopup.setEventListeners();
 
 // Card popup
 const addCardPopup = new PopupWithForm('.card-popup', ((data) => {
-  addCardPopup.savе(true);
+  addCardPopup.renderLoading(true);
   api.addNewCard(data)
     .then((data) => {
       cardList.addItem(createCard(data));
@@ -97,7 +98,7 @@ const addCardPopup = new PopupWithForm('.card-popup', ((data) => {
       console.log(`Ошибка: ${err}`);
     })
     .finally(() => {
-      addCardPopup.savе(false);
+      addCardPopup.renderLoading(false);
     });
 }));
 
@@ -111,7 +112,7 @@ imagePopup.setEventListeners();
 // Avatar popup
 
 const avatarPopup = new PopupWithForm('.popup_type_avatar', ((data) => {
-  avatarPopup.savе(true);
+  avatarPopup.renderLoading(true);
   api.editAvatar(data)
     .then((data) => {
       userInfo.setUserAvatar(data)
@@ -121,7 +122,7 @@ const avatarPopup = new PopupWithForm('.popup_type_avatar', ((data) => {
       console.log(`Ошибка: ${err}`);
     })
     .finally(() => {
-      avatarPopup.savе(false);
+      avatarPopup.renderLoading(false);
     });
 }));
 
@@ -135,7 +136,7 @@ deleteCardPopup.setEventListeners();
 const createCard = (item) => {
   const card = new Card({
     data: item,
-    cardSelector: '#template',
+    template: templateElement,
     userId: userId,
     openImagePopup: () => {
       imagePopup.open(item);

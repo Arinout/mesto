@@ -1,7 +1,7 @@
 export class Card {
   constructor({
     data,
-    cardSelector,
+    template,
     userId,
     openImagePopup,
     deleteCardIcon,
@@ -10,7 +10,7 @@ export class Card {
   }) {
     this._title = data.name;
     this._link = data.link;
-    this._cardSelector = cardSelector;
+    this._template = template;
     this._openImagePopup = openImagePopup;
     this._userId = userId;
     this._cardId = data._id;
@@ -22,7 +22,7 @@ export class Card {
   }
 
   _getTemplate() {
-    const cardTemplate = document.querySelector(this._cardSelector)
+    const cardTemplate = this._template
       .content.querySelector('.photo-grid__element')
       .cloneNode(true);
     return cardTemplate;
@@ -67,6 +67,7 @@ export class Card {
 
   deleteCard() {
     this._deleteButton.closest('.photo-grid__element').remove();
+    this._deleteButton = null;
   }
 
   _hasDeleteButton() {
